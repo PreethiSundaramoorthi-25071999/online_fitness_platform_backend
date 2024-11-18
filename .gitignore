@@ -1,0 +1,11 @@
+ 
+
+# Visual studio code
+.vscode
+.vs
+
+# node.js
+#
+node_modules/
+ 
+ 
