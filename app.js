@@ -1,8 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-
-
+//
+const cors = require('cors');
+//
 const trainerRoutes = require('./routes/trainer-routes');
 const usersRoutes = require('./routes/users-routes');
 const HttpError = require('./models/http-error');
@@ -10,7 +11,10 @@ const HttpError = require('./models/http-error');
 const app = express();
 
 app.use(bodyParser.json());
-
+//
+// Use CORS
+app.use(cors());
+//
 app.use('/api/trainer', trainerRoutes);
 app.use('/api/users', usersRoutes);
 
