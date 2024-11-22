@@ -1,5 +1,5 @@
 const express = require('express');
-const { check } = require('express-validator');
+// const { check } = require('express-validator');
 
 const  {
   createTrainers, 
@@ -26,8 +26,12 @@ router.get('/search', (req, res, next) => {
         res.status(400).send('Bad Request: Missing required query parameters');
     }
 });
-router.get('/getAllTrainers', getAllTrainers);
-
+// router.get('/getAllTrainers', getAllTrainers);
+//
+router.get('/getAllTrainers', (req, res) => {
+  res.send('Response for /getAllTrainers');
+});
+//
 router.post(
   '/',
  createTrainer
@@ -46,7 +50,7 @@ router.patch(
   //     .isEmpty(),
   //   check('expertise').isLength({ min: 5 })
   // ],
-updateTrainerDetails
+  updateTrainerDetails
 );
 
 router.patch(
@@ -57,7 +61,7 @@ router.patch(
   //     .isEmpty(),
   //   check('expertise').isLength({ min: 5 })
   // ],
-updateTrainerRatings
+  updateTrainerRatings
 );
 router.delete('/:pid', deleteTrainer);
 
